@@ -1,7 +1,7 @@
 .SUFFIXES: .o .c
 .PHONY: all options prog valmem dist clean
 
-PROGRAM    = concurrent-add
+PROGRAM    = generic-name
 VERSION    = 1.0.0
 SRC        = $(wildcard *.c)
 OBJ        = $(SRC:.c=.o)
