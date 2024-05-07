@@ -8,7 +8,7 @@ OBJ        = $(SRC:.c=.o)
 TEST_FRAME = Unity
 MDS        = Makefile COPYING README CHANGELOG
 CC         = gcc
-OPTFLAGS	= -O2 -march=native -mtune=native # Og - debugging
+OPTFLAGS	= -Ofast -march=native -mtune=native # Og - debugging
 WARNFLAGS	= -Wall -Wextra -Wpedantic --pedantic-errors -Werror \
 			  -Wfatal-errors -Wduplicated-branches -Walloc-zero \
 			  -Wdeclaration-after-statement
