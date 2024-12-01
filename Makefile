@@ -24,7 +24,7 @@ TESTFOBJ	= $(OBJ) $(TESTFSRC:.c=.o)
 MDS        	= Makefile
 CC		= $(COMPILER)
 OPTFLAGS	= -Ofast -march=native -mtune=native # Og - debugging
-WARNFLAGS	= -Wall -Wextra -Wpedantic --pedantic-errors # -Werror \
+WARNFLAGS	= -Wall -Wextra -Wpedantic --pedantic-errors -Werror \
 			  -Wfatal-errors -Wduplicated-branches -Walloc-zero \
 			  -Wdeclaration-after-statement
 CFLAGS     	= -std=c99 -g $(WARNFLAGS) $(OPTFLAGS)
@@ -47,7 +47,8 @@ $(TESTPROG): $(filter-out $(MAIN).o, $(TESTFOBJ))
 .c.o:
 	$(CC) $(CFLAGS) -c $<
 prog: options $(PROGRAM)
-	./$(PROGRAM)
+run: options $(PROGRAM)
+	./$(PROGRAM) < $(INFILE)
 check: options $(TESTPROG)
 	./$(TESTPROG)
 script: $(PROGRAM) #$(TESTPROG)
